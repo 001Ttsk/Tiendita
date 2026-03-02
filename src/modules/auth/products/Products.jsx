@@ -1,0 +1,47 @@
+import CreateProductModal from './components/CreateProductModal';
+import ProductRow from './components/ProductRow';
+
+export default function Products() {
+    return (
+        <div>
+            <h2>Productos</h2>
+
+            <section className="mt-4 d-flex align-items-center">
+                <div className="input-group me-auto" style={{ width: 500 }}>
+                    <span className="input-group-text">
+                        <i className="bi bi-search"></i>
+                    </span>
+                    <input type="search" className="form-control" placeholder="buscar..." name="" id="" />
+                </div>
+
+                <button className="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#createProductModal">
+                    <i className="bi bi-plus-lg"></i>&nbsp;
+                    Agregar Productos
+                </button>
+            </section>
+
+            <section className="mt-4">
+                <div className="table-responsive">
+                    <table className="table table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Marca</th>
+                                <th scope="col">C. Unitario</th>
+                                <th scope="col">A la venta</th>
+                                <th scope="col" className="text-center">Acciones</th>
+                            </tr>
+                        </thead >
+                        <tbody>
+                            < ProductRow />
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            {/* seccion de modales*/}
+            < CreateProductModal />
+        </div>
+    );
+}

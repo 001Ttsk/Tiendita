@@ -1,0 +1,49 @@
+import { useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
+
+export default function PasswordRecovery() {
+    const navigate = useNavigate();
+    useEffect(() => {
+        if(!!sessionStorage.getItem("token")) {
+            navigate("/auth/home");
+        }
+    }, []);
+
+    return (<main className="d-flex align-items-center justify-content-center">
+
+        <div className="card border-0 rounded-4 shadow" style={{width: 400}}>
+            <div className="card-body">
+                <p className="fw-bold">Recuperar contraseña</p>
+                <form action="" className="mt-4 row gap-3">
+
+                    <div className="col-12">
+                        <label htmlFor="">Correo electronico</label>
+                        <input type="text" className="form-control" />
+                    </div>
+
+                    <div className="col-12">
+                        <label htmlFor="">Contraseña</label>
+                        <input type="password" className="form-control" />
+                    </div>
+
+                    <div className="col-12">
+                        <label htmlFor="">Confirmar contraseña</label>
+                        <input type="password" className="form-control" />
+                    </div>  
+
+
+                    <div className="col-12 text-center">
+                        <button className="btn btn-primary col-12">Enviar correo</button>
+
+                        <p className="mb-0 mt-3">
+                            <Link to="/login">Regresar al login</Link>
+                        </p>
+
+                    </div>
+
+                </form>
+            </div>
+        </div>
+
+    </main>)
+}
